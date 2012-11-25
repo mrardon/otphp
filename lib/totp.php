@@ -80,6 +80,19 @@ namespace OTPHP {
       return ($otp == $this->at($timestamp));
     }
 
+    public function verify_window($otp, $backwards = 0, $forwards = 0) {
+		$now = time();
+		$start = $now - ($backwards * $this->interval);
+		$end   = $now + ($forwards * $this->interval);
+		for($t = $start, $i = 0; $i < ($backwards + $forwards + 1); $i++, $t += $this->interval)
+		{
+			if ($this->verify($otp, $t)) {
+				return true;
+			}
+		}
+		return false;
+    }
+
     /**
      * Returns the uri for a specific secret for totp method.
      * Can be encoded as a image for simple configuration in 
