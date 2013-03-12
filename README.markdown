@@ -1,4 +1,5 @@
 # OTPHP - A PHP One Time Password Library
+[![Build Status](https://travis-ci.org/mrardon/otphp.png?branch=master)](https://travis-ci.org/mrardon/otphp)
 
 A php library for generating one time passwords according to [ RFC 4226 ](http://tools.ietf.org/html/rfc4226) and the [ HOTP RFC ](http://tools.ietf.org/html/draft-mraihi-totp-timebased-00)
 
